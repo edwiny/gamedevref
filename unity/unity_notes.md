@@ -94,11 +94,31 @@ Set Thresholds for the directions, typically (-0.5, 0.5)
 
 More info: https://learn.unity.com/tutorial/sprite-animation?uv=2020.3&projectId=5c6166dbedbc2a0021b1bc7c#5c7f8528edbc2a002053b3f7
 
-Sending values to the Animation Controller:
+**Sending values to the Animation Controller**:
 
 In the gameobject's script:
 
 Add to `Start()`: `animator = GetComponent<Animator>();` 
+
+In update function, something like this:
+
+```
+float horizontal = Input.GetAxis("Horizontal");
+float vertical = Input.GetAxis("Vertical");
+                
+Vector2 move = new Vector2(horizontal, vertical);
+        
+if(!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+{
+    lookDirection.Set(move.x, move.y);
+    lookDirection.Normalize();
+}
+        
+animator.SetFloat("Look X", lookDirection.x);
+animator.SetFloat("Look Y", lookDirection.y);
+animator.SetFloat("Speed", move.magnitude);
+```
+
 
 **Transitions**:
 
