@@ -100,7 +100,12 @@ In the gameobject's script:
 
 Add to `Start()`: `animator = GetComponent<Animator>();` 
 
+**Transitions**:
 
- 
+* If there is no condition, the Transition will happen at the end of the Animation
+* Or, we can set a condition based on your parameters.
+
+  
+`Has Exit Time` unchecked? That means the moving animation won’t wait to finish before the State Machine goes to the Idle animation, it will instantly change.
 
 
