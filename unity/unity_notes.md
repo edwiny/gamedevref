@@ -74,4 +74,33 @@ Set Samples to ~4. If no Samples field, click on the lower 3 dots at top of wind
 
 To make opposite e.g. left anim, create another clip, drag the same sprite into the timeline, and add the Sprite Renderer Flip X property, and make sure it's enabled for all the frames.
 
+**The controller**
+
+Make sure game object's prefab is selected.
+Go Window -> Animation -> Animat**tor**.
+
+Delete any existing states.
+
+Then right-click somewhere in the graph and select Create State > From New Blend Tree. 
+
+The Blend tree map the values for the configured parameters to animation clips.
+
+The Blend Type determines the number of parameters evaluated to select the animation clips.
+
+Replace the auto provided Blend property, by adding them in the Parameters section of the Animator window.
+
+Set Thresholds for the directions, typically (-0.5, 0.5)
+
+
+More info: https://learn.unity.com/tutorial/sprite-animation?uv=2020.3&projectId=5c6166dbedbc2a0021b1bc7c#5c7f8528edbc2a002053b3f7
+
+Sending values to the Animation Controller:
+
+In the gameobject's script:
+
+Add to `Start()`: `animator = GetComponent<Animator>();` 
+
+
+ 
+
 
