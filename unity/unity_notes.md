@@ -74,3 +74,4 @@ Set Samples to ~4. If no Samples field, click on the lower 3 dots at top of wind
 
 To make opposite e.g. left anim, create another clip, drag the same sprite into the timeline, and add the Sprite Renderer Flip X property, and make sure it's enabled for all the frames.
 
+
