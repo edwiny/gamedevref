@@ -118,6 +118,9 @@ animator.SetFloat("Look X", lookDirection.x);
 animator.SetFloat("Look Y", lookDirection.y);
 animator.SetFloat("Speed", move.magnitude);
 ```
+In general, you will normalize vectors that store direction because length is not important, only the direction is. 
+NOTE: You should never normalize a vector storing a position because as it changes x and y, it changes the position!
+
 
 
 **Transitions**:
