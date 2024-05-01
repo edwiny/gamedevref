@@ -52,3 +52,25 @@ set their collider type to None.
 Optimise:
 * add Composite Collider to TileMap
 * In 2D TileMap Collider setttings, enable 'Used By Composite'
+
+
+## 2D Animation
+
+Start with game object. Add component 'Animator'.
+
+Create a controller: in Projects folder, go to your Anim folder (or create it), right click and create 'Animator Controller'.
+
+Open the Animation window by selecting Window > Animation > Animation. 
+Make sure the game object you want to animate is selected. Animation window  (expand right side) should have a Create button. Click it.
+
+You can animate any property from any component in your GameObject over time with the Animator. It could be the Sprite Color that you would like to change over time, or the size. In  this case, you want to change the Sprite used by the Sprite Renderer.
+
+Create New Clip.
+
+
+Go to Projects window, and select sprites (either individual, or from a sheet) and drag to Animation window.
+
+Set Samples to ~4. If no Samples field, click on the lower 3 dots at top of window.
+
+To make opposite e.g. left anim, create another clip, drag the same sprite into the timeline, and add the Sprite Renderer Flip X property, and make sure it's enabled for all the frames.
+
