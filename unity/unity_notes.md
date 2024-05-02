@@ -133,3 +133,25 @@ NOTE: You should never normalize a vector storing a position because as it chang
 Use case is typically to let a animation loop once then reset to a idle state.
 
 
+**Parameters**"
+
+Trigger - use for a discrete event like being hit
+
+
+
+**Sending values to Animator**
+
+```
+ move = moveAction.ReadValue<Vector2>();
+
+        if(!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y,0.0f))
+        {
+            moveDirection.Set(move.x, move.y);
+            moveDirection.Normalize();
+        }
+        animator.SetFloat("Look X", moveDirection.x);
+        animator.SetFloat("Look Y", moveDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
+```
+
+
