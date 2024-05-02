@@ -130,5 +130,6 @@ NOTE: You should never normalize a vector storing a position because as it chang
 
   
 `Has Exit Time` unchecked? That means the moving animation won’t wait to finish before the State Machine goes to the Idle animation, it will instantly change.
+Use case is typically to let a animation loop once then reset to a idle state.
 
 
