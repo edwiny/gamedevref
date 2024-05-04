@@ -94,6 +94,40 @@ Set Thresholds for the directions, typically (-0.5, 0.5)
 
 More info: https://learn.unity.com/tutorial/sprite-animation?uv=2020.3&projectId=5c6166dbedbc2a0021b1bc7c#5c7f8528edbc2a002053b3f7
 
+**Thresholds**
+
+AFAICT: input values within the thresholds, where the lines in the visualiser crosses, is where the Controller will *blend* animations. I.e. sometimes it will pick one animation, sometimes the other, depending on how much "influence" each axis has.
+
+**Vector Normalisation**
+WARNING: when using Vector2.Normalize(), if only one axis changes all the time (i.e. up/down movement), the other axis' value will decrease
+over repeated calls. I don't know why this happens but I suspect it's because of truncated values in floating point calculations.
+Normalize will result in the biggest value becoming no more than one. 
+
+The calculation is 
+
+`V/|V| = (x/|V|, y/|V|)`
+
+So there's a lot of division going on when you normalise.
+
+
+To prevent this, ensure the input values have thresholds:
+```
+   public static float ConstrainToMinimum(float input, float minThreshold)
+   {
+       if (Mathf.Abs(input) < minThreshold) { 
+           if (input > 0.0f)
+           {
+               return minThreshold;
+           }
+           else
+           {
+               return -minThreshold;
+           }
+       }
+       return input;
+   }
+```
+
 **Sending values to the Animation Controller**:
 
 In the gameobject's script:
