@@ -236,6 +236,7 @@ If rigidbody:
 ## Working with time
 
 `Time.deltaTime (float)` is the time in **seconds** since last frame update.
+`Time.time (float)` is the time in seconds since game started.
 
 As properties:
 
@@ -261,6 +262,16 @@ if (timer < 0)
     animator.SetFloat("Move Yf", move.y);
 }
 
+```
+#  Spawning objects
+
+* Create a Spawner game object and create a C# script for it.
+* Add public variables for the prefabs of the objects you want to spawn.
+* Drag the prefabs in the UI over to the public variables of the spawner game object's inspector window.
+
+In the Spawner script, create it with
+```
+ var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 ```
 
 
