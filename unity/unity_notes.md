@@ -189,3 +189,18 @@ Trigger - use for a discrete event like being hit
 ```
 
 
+
+#  Creating visible game objects
+
+* Right click in Hierarchy window and create empty
+* Assign Sprite Renderer 2D on object
+* Select a sprite or animation
+* NB: Ensure Z coordinates are 0 otherwise it won't show up
+
+
+# Common problems
+
+## Object won't show up in Game view or in running game, but shows up in Scene view.
+Check the z coordinates, make sure they're 0.
+
+* 
