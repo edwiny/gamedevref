@@ -1,19 +1,11 @@
 # Unity 2D notes
 
 
-## OnCollisionEnter2D vs OnTriggerEnter2D
-
-By default the 'OnCollision' functions are called when two Colliders collide. However they are disabled when the Trigger functions are enabled.
-
-The 'OnTrigger' functions are activated when the 'Is Trigger' checkbox is enabled on the Box Collider 2D component.
-
-Trigger colliders don’t cause collisions. Instead, they detect other Colliders that pass through them, and call functions that you can use to initiate events 
-
-## Art
+# Art
 
 Important: When you create sprites for Unity, the dimensions of the files are critical for optimal sprite rendering. The height and width of a sprite file should be a power of two size in pixels (2^n). The height and width don’t need to be the same value: both 16 by 16 pixels and 8 by 32 pixels would meet this requirement. For these walk cycle sprites, our animator created 512 by 512 pixel files.
 
-## TileMaps
+# TileMaps
 
 To create the TileMap:
 
@@ -54,7 +46,7 @@ Optimise:
 * In 2D TileMap Collider setttings, enable 'Used By Composite'
 
 
-## 2D Animation
+# 2D Animation
 
 Start with game object. Add component 'Animator'.
 
@@ -188,7 +180,18 @@ Trigger - use for a discrete event like being hit
         animator.SetFloat("Speed", move.magnitude);
 ```
 
+# Collision Detection
 
+Add a Box Collider 2D or other collider to the object you want to collide with.
+
+On the object that will deal with the collision, add callback method:
+
+```
+private void OnCollisionEnter2D(Collision2D collision)
+{
+    
+}
+```
 
 #  Creating visible game objects
 
@@ -204,3 +207,13 @@ Trigger - use for a discrete event like being hit
 Check the z coordinates, make sure they're 0.
 
 * 
+## Collision method not triggering.
+
+OnCollisionEnter2D vs OnTriggerEnter2D
+
+By default the 'OnCollision' functions are called when two Colliders collide. However they are disabled when the Trigger functions are enabled.
+
+The 'OnTrigger' functions are activated when the 'Is Trigger' checkbox is enabled on the Box Collider 2D component.
+
+Trigger colliders don’t cause collisions. Instead, they detect other Colliders that pass through them, and call functions that you can use to initiate events 
+
