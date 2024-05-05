@@ -273,6 +273,11 @@ In the Spawner script, create it with
 ```
  var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 ```
+# Screen
+
+Get screen size:
+https://gameandcode.com/blog/objectspawner/
+
 
 
 # Common problems
@@ -290,4 +295,6 @@ By default the 'OnCollision' functions are called when two Colliders collide. Ho
 The 'OnTrigger' functions are activated when the 'Is Trigger' checkbox is enabled on the Box Collider 2D component.
 
 Trigger colliders don’t cause collisions. Instead, they detect other Colliders that pass through them, and call functions that you can use to initiate events 
+
+
 
