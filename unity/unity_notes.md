@@ -184,13 +184,24 @@ Trigger - use for a discrete event like being hit
 
 Add a Box Collider 2D or other collider to the object you want to collide with.
 
+There are 2 variants:
+* Colliders - generates a physics collision and will interact with the physics calcs, e.g. stop a player from moving through it.
+* Triggers - no physics interaction, i.e. player can move through it.
+
 On the object that will deal with the collision, add callback method:
 
 ```
+//For colliders
 private void OnCollisionEnter2D(Collision2D collision)
 {
     
 }
+
+//for triggers
+ private void OnTriggerEnter2D(Collider2D other)
+ {
+     Debug.Log("Milo.OnTriggerEnter2D: " + other.gameObject);
+ }
 ```
 
 #  Creating visible game objects
