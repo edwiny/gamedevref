@@ -211,6 +211,29 @@ private void OnCollisionEnter2D(Collision2D collision)
 * Select a sprite or animation
 * NB: Ensure Z coordinates are 0 otherwise it won't show up
 
+## Moving things around
+
+Generally you'll want to move the rigidbody to make sure you play nice with the physics system.
+If something doesn't have a rigidbody, you can manipulate the game object's transform directly:
+
+(move is a private Vector2 property)
+
+```
+void Update()
+{
+    Vector2 position = (Vector2)transform.position + move * Time.deltaTime * speed;
+    transform.position = position;
+}
+```
+
+If rigidbody:
+```
+ void FixedUpdate() {
+     Vector2 position = (Vector2)rigidbody2D.position + move * Time.deltaTime * speed;
+     rigidbody2D.MovePosition(position);
+ }
+```
+
 
 # Common problems
 
