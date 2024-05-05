@@ -233,6 +233,35 @@ If rigidbody:
      rigidbody2D.MovePosition(position);
  }
 ```
+## Working with time
+
+`Time.deltaTime (float)` is the time in **seconds** since last frame update.
+
+As properties:
+
+```
+    public float changeTime = 2.0f;
+    float timer;
+```
+
+In Start() method:
+```
+        timer = changeTime;
+```
+
+in Update() method:
+```
+timer -= Time.deltaTime;
+if (timer < 0)
+{
+    move.x = -move.x;
+    move.y = -move.y;
+    timer = changeTime;
+    animator.SetFloat("Move Xf", move.x);
+    animator.SetFloat("Move Yf", move.y);
+}
+
+```
 
 
 # Common problems
