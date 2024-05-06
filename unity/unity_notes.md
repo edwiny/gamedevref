@@ -278,6 +278,41 @@ In the Spawner script, create it with
 Get screen size:
 https://gameandcode.com/blog/objectspawner/
 
+Tl;dr:
+
+```
+  public void CalculateScreenBorders()
+    {
+        // Get the camera used to render the scene
+        Camera mainCamera = Camera.main;
+
+        // Get the distance between the camera and the near clipping plane
+        float cameraDistance = mainCamera.nearClipPlane;
+
+        // Calculate the coordinates of the screen borders
+        bottomLeft = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, cameraDistance));
+        topLeft = mainCamera.ScreenToWorldPoint(new Vector3(0, Screen.height, cameraDistance));
+        topRight = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, cameraDistance));
+        bottomRight = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, 0, cameraDistance));
+
+        width = bottomRight.x - bottomLeft.x;
+        height = topLeft.y - bottomLeft.y;
+    }
+```
+
+# Dynamic Camera
+
+* Add the Cinemachine package via the Package Manager
+* Under main camera in Hierarchy, right click -> Cinemachine -> 2D Camera
+* Things might seem further away. In Game view, go to Virtual Camera's `Lens Ortho Size` setting, set to 5.
+* Drag the PlayerCharacter GameObject from the Hierarchy window and assign it to the Follow property in the CinemachineVirtualCamera component.
+* In the Extensions section in the Inspector, click the Add Extension property dropdown and select CinemachineConfiner2D
+**Orthographic size** is how many units the camera fits in half of its height. When you set the Lens Ortho Size property to 5, 10 units of the world are displayed vertically on screen.
+* In the Hierarchy window, create a new empty GameObject and name it “CameraConfiner”.
+* Add a `PolygonCollider2` or `CompositeCollider2D` component to the CameraConfiner Gameobject. Edit the collider to contain the area where you want to restrict the camera. Once done, make sure to click the Edit Collider again.
+* Assign the CameraConfiner GameObject to the Bounding Shape 2D property in the Virtual Camera's Inspector window.
+* Prevent the physics system from pushing out the player: In the Inspector window header, select the Layer dropdown, then select Add Layer. Create a new layer called “Confiner” and set the CameraConfiner GameObject layer to Confiner.
+* From the main menu, select Edit > Project Settings > Physics 2D. Disable the Confiner layer’s collisions with every other layer.
 
 
 # Common problems
