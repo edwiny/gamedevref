@@ -263,6 +263,47 @@ if (timer < 0)
 }
 
 ```
+
+# InputSystem
+
+Make sure the InputSystem package is installed and enabled.
+In Project window, right click -> Create -> Input Action 
+Setup a default InputActionMap
+In the Map, setup Actions.
+For left,right,up,down type action, create a Composite type.
+
+In player controller code:
+
+```
+private void Awake()
+{
+
+    defaultActionMap = primaryActions.FindActionMap("DefaultActionMap");
+
+    moveAction = defaultActionMap.FindAction("Move");
+    moveAction.Enable();
+
+    //if only interested in a single button press, like jump once
+    moveAction.performed += NextPlayerInputAction_performed;
+    //if need to stop-start movement, but beware it won't fire multiple times
+    //if value type is composite and you try to run diagonal
+    moveAction.started += NextPlayerInputAction_performed;
+    moveAction.canceled += NextPlayerInputAction_performed;
+}
+```
+
+If you're trying to change player movement with multiple hold keys 
+(e.g. pressing d and w to run diagonally) and you're working with a Vector2 composite input type,
+then it's better to use the polling api:
+
+```
+void Update()
+{
+    move = moveAction.ReadValue<Vector2>();
+    RespondToInput();
+}
+```
+
 #  Spawning objects
 
 * Create a Spawner game object and create a C# script for it.
