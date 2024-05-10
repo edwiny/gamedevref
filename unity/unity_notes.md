@@ -5,6 +5,15 @@
 
 Important: When you create sprites for Unity, the dimensions of the files are critical for optimal sprite rendering. The height and width of a sprite file should be a power of two size in pixels (2^n). The height and width don’t need to be the same value: both 16 by 16 pixels and 8 by 32 pixels would meet this requirement. For these walk cycle sprites, our animator created 512 by 512 pixel files.
 
+# Units of measurements  
+
+Dimensions in Unity are typically presented in Pixels per Unit.
+
+Lets say on a tile's import settings, you set the PPU to 100. That means 100 pixels of the tile will fit into one unit.
+So if tile's actual dimensions are 200x200 pixels, it will take up 2 units.
+
+Think of PPU as "How much of the image should fit into a unit?"
+
 # TileMaps
 
 To create the TileMap:
@@ -374,3 +383,7 @@ Trigger colliders don’t cause collisions. Instead, they detect other Colliders
 
 
 
+# Great Resources
+
+* Explaining Pixels per Unit: https://youtu.be/iFpfj-lMh-g?si=BXIx2tm8ABJVVqJ6
+* 
