@@ -99,6 +99,17 @@ More info: https://learn.unity.com/tutorial/sprite-animation?uv=2020.3&projectId
 
 AFAICT: input values within the thresholds, where the lines in the visualiser crosses, is where the Controller will *blend* animations. I.e. sometimes it will pick one animation, sometimes the other, depending on how much "influence" each axis has.
 
+
+**Default state**
+
+It's important to understand that, in the absence of any triggers or values for animation parameters, the animations linked to the Default State is going to loop over and over.
+
+Right click any state to set the default.
+
+Note: if the subject is following a strictly linear path, e.g. spawn, do something, then disappear, you need to set the default state to Empty (right click and create Empty state).
+
+
+
 **Vector Normalisation**
 WARNING: when using Vector2.Normalize(), if only one axis changes all the time (i.e. up/down movement), the other axis' value will decrease
 over repeated calls. I don't know why this happens but I suspect it's because of truncated values in floating point calculations.
