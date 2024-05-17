@@ -392,7 +392,11 @@ The 'OnTrigger' functions are activated when the 'Is Trigger' checkbox is enable
 
 Trigger colliders don’t cause collisions. Instead, they detect other Colliders that pass through them, and call functions that you can use to initiate events 
 
-
+Other things to check:
+* At least one participant of the collision needs to have rigidbody component attached.
+* Check that is trigger is not selected on any of the colliders
+* Pause the game and check in the scene view that the green boxes of the colliders actually colliding
+* Check the layers of the gameobjects and check if they are should collide because of the layer based collision
 
 # Great Resources
 
