@@ -1,4 +1,4 @@
-# Unity 2D notes
+![image](https://github.com/edwiny/gamedevref/assets/7368908/dfae84d0-7d17-4dd3-b976-a4c248a621bc)![image](https://github.com/edwiny/gamedevref/assets/7368908/73986e0c-a7f5-43ac-9c7e-6ff10b9cfedd)![image](https://github.com/edwiny/gamedevref/assets/7368908/6653c0e8-117d-4949-89a5-7a3c6be7795e)# Unity 2D notes
 
 
 # Art
@@ -374,6 +374,53 @@ Tl;dr:
 * Assign the CameraConfiner GameObject to the Bounding Shape 2D property in the Virtual Camera's Inspector window.
 * Prevent the physics system from pushing out the player: In the Inspector window header, select the Layer dropdown, then select Add Layer. Create a new layer called “Confiner” and set the CameraConfiner GameObject layer to Confiner.
 * From the main menu, select Edit > Project Settings > Physics 2D. Disable the Confiner layer’s collisions with every other layer.
+
+
+# Physics
+
+## Colliders
+
+* **Colliders** enable Unity to register when GameObjects intersect it other.
+* GameObjects must have a RigidBody for a **collision** to occur.
+
+Note that the more complex a collider shape is, the more computationally expensive it becomes to detect collision.
+
+Tip: Can use ProBuilder to use simpler "proxy" meshes for complex shapes.
+
+Colliders are included in many of Unity's 3D objects from the GameObject dropdown menu.
+
+## Triggers
+
+Triggers function the same as Colliders but disables Physics on the component, enabling objects to pass through it.
+Enable it by ticking the 'Is Trigger' checkbox on the Collider component.
+
+**NOTE** One of the objects colliding must have a RigidBody component attached. Best practice: objects that move within a Trigger
+should have the RigidBody.
+
+## RigidBody
+
+The RigidBody component allows GameObjects to be affected by physics.
+
+Some of the properties:
+* Mass - objects of larger mass affect objects of lower mass more
+* Drag - the dampening of velocity over time
+* Angular Drag - dampening of angular velocity (rotation?)
+* Is Kinematic checkbox - affect other objects in the physics simulation but are not effected by physics itself. E.g. a hand in VR manipulating objects.
+  * Also has impact on animation. If enabled, then Animation Engine has control of the object, otherwise the object is controlled by the Physic Engine.
+* Interpolate
+  * Interpolate - smooth movements of objects are based on information from the previous frame of animation in the animations timeline
+  * Extrapolate - smooth movements are based on a guess of the next frame
+* Collision Detection:
+  * Discrete - default
+  * Continuous - fast objects that interact with static objects
+  * Continuous Speculative - predictive collision checking
+* Constaints - for each axis X, Y, Z, define which axis should not move.
+
+
+ Note there's additional settings in Edit -> Project Settings -> Physics
+
+ 
+ 
 
 
 # Common problems
