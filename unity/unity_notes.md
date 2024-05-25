@@ -1,4 +1,4 @@
-![image](https://github.com/edwiny/gamedevref/assets/7368908/dfae84d0-7d17-4dd3-b976-a4c248a621bc)![image](https://github.com/edwiny/gamedevref/assets/7368908/73986e0c-a7f5-43ac-9c7e-6ff10b9cfedd)![image](https://github.com/edwiny/gamedevref/assets/7368908/6653c0e8-117d-4949-89a5-7a3c6be7795e)# Unity 2D notes
+# Unity 2D notes
 
 
 # Art
