@@ -389,6 +389,10 @@ Tip: Can use ProBuilder to use simpler "proxy" meshes for complex shapes.
 
 Colliders are included in many of Unity's 3D objects from the GameObject dropdown menu.
 
+Best practice:
+* Explicitly define which objects can collide in order to reduce the number of calculations
+* Some physics attributes on Static Objects can be very expensive (?)
+
 ## Triggers
 
 Triggers function the same as Colliders but disables Physics on the component, enabling objects to pass through it.
@@ -480,6 +484,45 @@ Joints apply forces that move rigid bodies. Joint limits can restrict certain mo
 * Fixed Joint - Restrict movement of rigidbody to follow movement of another body it's attached to. Use case: if you need rigidbodies that easily break apart, or you want to connect movement of two rigidbodies.
 * Hinge Joint - attaches a rigidbody to a point in space at a shared origin and allows bodies to rotate around a specific axis from that origin. Useful for doors or fingers.
 * Spring Joint - Keep rigidbodies apart from each other but let the distance between them stretch slightly. The spring acts as a piece of elastic that tries to pull the two anchor points together to the exact same position.
+
+## Raycasting
+
+Casts an invisible ray (or connection) between two Physics objects.
+
+```
+Physics.Raycast(Vector3 origin, Vector3 direction)
+Physics.Raycast(Vector3 origin, Vector3 direction, RaycastHit info, float distance, int layerMask
+Physics.Raycast(Ray rayname, RaycastInfo info, float distance, int layerMask)
+```
+
+Some of the less obvious paramaters
+* distance - max distance the ray should travel
+* layerMask - a layer mask used to selectively ignore certain sets of colliders when casting
+* queryTriggerInteraction? - specifies if query should hit Triggers
+
+tip: use tags to help identify objects being hit.
+
+Example:
+
+```
+Raycast hit;
+Ray landingRay = new Ray(transform.position, Vector3.down);
+if(!deployed) {
+  if(Physics.Raycast(landingRay, out hit, deploymentHeight)) {
+    if(hit.collider.tag == "env") {
+       deployParachute();
+    }
+  }
+}
+```
+
+**Raycasting Best Practice**:
+* keep the number of casts in a scene to a minimum
+* do not raycast inside FixedUpdate() or Update()
+* MeshColliders should be avoided
+
+ 
+
 
 
 # Common problems
