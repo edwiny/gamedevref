@@ -469,6 +469,17 @@ The create custom physics material:
 * Assets -> Create -> Physics Material
 and add it to the GameObject by selecting the newly created material in Project window and dragging it over to the Material property.
 
+## Physics Joints
+
+A Joint Component connects a RigidBody to another RigidBody or a fixed point in space.
+
+Joints apply forces that move rigid bodies. Joint limits can restrict certain movements.
+
+* Character Joint - e.g. a hip or shoulder. Constrains movement on linear access, enables all angular freedoms. Rigidbodies attached to the same char joint orient around each axis and pivot from a shared origin.
+* Configurable Joint - emulates skeletal joint such as joints in a ragdoll. Can configure this joint to force and restrict movement in any degree of freedom.
+* Fixed Joint - Restrict movement of rigidbody to follow movement of another body it's attached to. Use case: if you need rigidbodies that easily break apart, or you want to connect movement of two rigidbodies.
+* Hinge Joint - attaches a rigidbody to a point in space at a shared origin and allows bodies to rotate around a specific axis from that origin. Useful for doors or fingers.
+* Spring Joint - Keep rigidbodies apart from each other but let the distance between them stretch slightly. The spring acts as a piece of elastic that tries to pull the two anchor points together to the exact same position.
 
 
 # Common problems
