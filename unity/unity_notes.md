@@ -419,8 +419,56 @@ Some of the properties:
 
  Note there's additional settings in Edit -> Project Settings -> Physics
 
- 
- 
+## Scripting
+
+Looks like this:
+
+```
+void OnCollisionEnter(Collision collision)
+{
+   if(collision.gameObject.CompareTag("Enemy"))
+   {
+   }
+}
+```
+Other messages:
+
+* OnCollisionStay(Collision) - called during collision
+* OnCollisionExit(Collision) - called when collision has stopped
+* bool rigidBody.useGravity - enable or disable gravity
+* rigidBody.AddForce(Vector3) - add force to move in a particular direction
+* rigidBody.AddTorque(Vector3, Force Mode) - add rotational force around a particular axis
+
+
+## Force Modes
+
+* Acceleration - apply force that increases at steady rate
+* Force - default, gradually apply force to a object, accounting for its mass
+* Impulse - apply instant force in stead of one that gradually builds up over time
+* VelocityChange - apply instant force in different directions, disregarding mass
+
+## Updates
+
+* Update() - called once per frame
+* FixedUpdate() - called multiple times per frame. Most physics calcs will be called in FixedUpdate. Time between updates are fixed.
+
+## Physics materials
+
+Controls how friction of surfaces interact with other surfaces.
+
+Custom materials can be applied to colliders. 
+
+Properties:
+* Dynamic Friction
+* Static Friction
+* Bounciness
+* Friction Combine
+* Bounce Combine
+
+The create custom physics material:
+* Assets -> Create -> Physics Material
+and add it to the GameObject by selecting the newly created material in Project window and dragging it over to the Material property.
+
 
 
 # Common problems
