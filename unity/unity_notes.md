@@ -287,23 +287,29 @@ if (timer < 0)
 # InputSystem
 
 Make sure the InputSystem package is installed and enabled.
-In Project window, right click -> Create -> Input Action 
-Setup a default InputActionMap
-In the Map, setup Actions.
-For left,right,up,down type action, create a Composite type.
+
+* In Project window, right click -> Create -> Input Action 
+* Setup a default InputActionMap
+* In the Map, setup Actions.
+* For left,right,up,down type action, create a Composite type.
 
 In player controller code:
 
+
+
 ```
+using UnityEngine.InputSystem;
+
+
+//drag and drop the asset you created
+public InputActionAsset inputActionAsset;
+
 private void Awake()
 {
-
     defaultActionMap = primaryActions.FindActionMap("DefaultActionMap");
-
     moveAction = defaultActionMap.FindAction("Move");
-    moveAction.Enable();
+    moveAction.Enable();    //if only interested in a single button press, like jump once
 
-    //if only interested in a single button press, like jump once
     moveAction.performed += NextPlayerInputAction_performed;
     //if need to stop-start movement, but beware it won't fire multiple times
     //if value type is composite and you try to run diagonal
