@@ -553,6 +553,13 @@ Other things to check:
 * Pause the game and check in the scene view that the green boxes of the colliders actually colliding
 * Check the layers of the gameobjects and check if they are should collide because of the layer based collision
 
+## Lines Appearing in TileMaps (Tearing)
+
+In Project view, right click and add 2D Sprite Atlas. In 'Objects for packing' select the folder where your env sprites are stored.
+Select filter mode to Point, and set Compression to None or High Quality.
+
+
+
 # Great Resources
 
 * Explaining Pixels per Unit: https://youtu.be/iFpfj-lMh-g?si=BXIx2tm8ABJVVqJ6
