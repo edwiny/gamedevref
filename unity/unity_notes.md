@@ -559,6 +559,13 @@ In Project view, right click and add 2D Sprite Atlas. In 'Objects for packing' s
 Select filter mode to Point, and set Compression to None or High Quality.
 
 
+## Getting stuck on the sides of tiles/walls
+
+In Project view, right click, Create -> 2D -> Physics Material 2D -> name it "ZeroFrictionMaterial"
+Set the "Friction" component to zero.
+
+On player character, add the new material to the 2D Box Collider.
+
 
 # Great Resources
 
