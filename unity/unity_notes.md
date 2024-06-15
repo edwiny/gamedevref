@@ -334,7 +334,9 @@ void Update()
 }
 ```
 
-#  Spawning objects
+# GameObjects
+
+##  Spawning objects
 
 * Create a Spawner game object and create a C# script for it.
 * Add public variables for the prefabs of the objects you want to spawn.
@@ -343,6 +345,12 @@ void Update()
 In the Spawner script, create it with
 ```
  var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+```
+
+## Destroying objects
+
+```
+Destroy(gameObject);
 ```
 # Screen
 
