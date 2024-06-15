@@ -221,6 +221,10 @@ private void OnCollisionEnter2D(Collision2D collision)
  private void OnTriggerEnter2D(Collider2D other)
  {
      Debug.Log("Milo.OnTriggerEnter2D: " + other.gameObject);
+     if (other.gameObject.CompareTag("Enemy") && !immobile)
+     {
+        hit();
+     }
  }
 ```
 
