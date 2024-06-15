@@ -527,8 +527,33 @@ if(!deployed) {
 * do not raycast inside FixedUpdate() or Update()
 * MeshColliders should be avoided
 
- 
+# Unity Assets directory layout
 
+* Project/Assets
+  * Animation
+  * Art
+    *  External
+      * Aseprite
+    * Characters
+    * Palettes
+    * Collectibles
+    * Enemies
+    * Env
+      * Platforms
+      * Background
+      
+    
+  * Tiles
+    * AnimatedTiles
+    * BackgroundTiles
+    * PlatformTiles
+  * Tilemaps
+  * Controls
+  * Materials
+  * Prefabs
+  * Scenes
+  * Scripts
+  * Sounds
 
 
 # Common problems
