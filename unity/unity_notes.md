@@ -227,14 +227,6 @@ private void OnCollisionEnter2D(Collision2D collision)
      }
  }
 ```
-
-#  Creating visible game objects
-
-* Right click in Hierarchy window and create empty
-* Assign Sprite Renderer 2D on object
-* Select a sprite or animation
-* NB: Ensure Z coordinates are 0 otherwise it won't show up
-
 ## Moving things around
 
 Generally you'll want to move the rigidbody to make sure you play nice with the physics system.
@@ -336,7 +328,24 @@ void Update()
 
 # GameObjects
 
-##  Spawning objects
+## Parent-child relationship in the Hierarchy window
+
+When game objects are nested in a parent-child relationship, their Transforms are grouped together, much like in a drawing program you can group figures together and rotate/move/tranform them all at the same time.
+
+Notes:
+* child object's positions are expresssed as relative to the parent object.
+* 
+
+##  Creating game objects via the UI
+
+* Right click in Hierarchy window and create empty
+* Assign Sprite Renderer 2D on object
+* Select a sprite or animation
+* NB: Ensure Z coordinates are 0 otherwise it won't show up
+
+
+
+##  Spawning objects programmatically
 
 * Create a Spawner game object and create a C# script for it.
 * Add public variables for the prefabs of the objects you want to spawn.
