@@ -334,7 +334,10 @@ When game objects are nested in a parent-child relationship, their Transforms ar
 
 Notes:
 * child object's positions are expresssed as relative to the parent object.
-* 
+### Keeping hierarchy organised
+
+* Create empty game objects to group similar stuff.
+  
 
 ##  Creating game objects via the UI
 
@@ -576,6 +579,10 @@ if(!deployed) {
   * Scripts
   * Sounds
 
+# Productivity Tips
+
+* Searching gameobjects in Hierarchy: prepend search with `t:` to search objects that have that component enabled on them.
+* 
 
 # Common problems
 
