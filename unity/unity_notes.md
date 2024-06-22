@@ -364,6 +364,23 @@ In the Spawner script, create it with
 ```
 Destroy(gameObject);
 ```
+
+
+## Scripting child objects
+
+Iterating through child transforms:
+
+```
+foreach(Transform t in transform) {
+```
+
+Iterating through child gameobjects:
+
+```
+for(int i = 0; i < transform.childCount; i++) {
+  var o = transform.GetChild(i);
+}
+```
 # Screen
 
 Get screen size:
