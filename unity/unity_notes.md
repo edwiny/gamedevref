@@ -637,13 +637,17 @@ Set the "Friction" component to zero.
 On player character, add the new material to the 2D Box Collider.
 
 
-## Slicing sprite sheets from other artists
+## Working with sprite sheets from other artists
+
+Slicing:
 
 * You might want to slice it different ways. Create multiple copies of each spritesheet, one for each way you want to slice it.
 * When you slice the sheet during import, ensure the 'Keep empty' checkbox is ticked. This is so, when importing it to a tile palette, it keeps the same shape as the original sheet which is often arranged as a showcase type build.
 * Another tip: In the meantime, a quick but effective work-around is to fill the entire sprite sheet with a solid color, save it, and slice it in Unity. This causes all cells to be created since none of them are empty. Now, here's the fun part: simply revert the sprite sheet back to what it was before, empty cells and all, and re-save. After reverting, the empty sprites are not removed.
-* 
-* 
+
+
+Tilemap colliders:
+* Make sure the tops of platform tiles where the player will walk on them is completely flat, as Unity will automatically generate an approximate collider boundary for tilemaps that you can't control, and with lots of edges it seems to take a conservative view and creates the outline too far from the sprite, so characters look like they're floating on top.
 
 # Great Resources
 
