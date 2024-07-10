@@ -649,6 +649,11 @@ Slicing:
 Tilemap colliders:
 * Make sure the tops of platform tiles where the player will walk on them is completely flat, as Unity will automatically generate an approximate collider boundary for tilemaps that you can't control, and with lots of edges it seems to take a conservative view and creates the outline too far from the sprite, so characters look like they're floating on top.
 
+What to look for in sprite or tile sheets from other artists:
+* Good variety. Should make you feel like a minecraft player.
+* Even surfaces where the player will be walking on.
+* 
+
 # Great Resources
 
 * Explaining Pixels per Unit: https://youtu.be/iFpfj-lMh-g?si=BXIx2tm8ABJVVqJ6
