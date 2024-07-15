@@ -54,6 +54,9 @@ Optimise:
 * add Composite Collider to TileMap
 * In 2D TileMap Collider setttings, enable 'Used By Composite'
 
+Gotchas:
+* if working with multiple tilemaps, make sure their transform x,y,z coordinates are the same (typically 0,0,0)
+* don't move your tilemap tiles! there's a [bug|https://forum.unity.com/threads/i-have-2-tiles-on-my-tilemap-that-i-cannot-remove-erase.818406/#post-8326224] where you can't select them afterwards.
 
 # 2D Animation
 
