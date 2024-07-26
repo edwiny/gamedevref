@@ -11,7 +11,9 @@ New create a GameObject and add the Particle System component.
 1. Renderer module:
   * Set "Render Mode" to "Billboard" and ensure "Render Alignment" is set to "World".
   * Drag the material over into the Material field.
-4. In the main module
+1. In the main module
   * Set "Simulation Space" to "World" for better performance in 2D.
   * Disable the "3D Start Size" and "3D Start Rotation" options in the main module.
   * Set Gravity Source to 2D
+
+Caution: Most of the shapes for the emitter are 3D shapes, that can cause particles to go behind other objects in the 2D plane. Set shape to Circle to prevent it.
