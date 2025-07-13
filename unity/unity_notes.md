@@ -3,16 +3,30 @@
 
 # Art
 
-Important: When you create sprites for Unity, the dimensions of the files are critical for optimal sprite rendering. The height and width of a sprite file should be a power of two size in pixels (2^n). The height and width don’t need to be the same value: both 16 by 16 pixels and 8 by 32 pixels would meet this requirement. For these walk cycle sprites, our animator created 512 by 512 pixel files.
+Important: When you create sprites for Unity, the dimensions of the files are critical for optimal sprite rendering. The height and width of a sprite file should be a power of two size in pixels (2^n). The height and width don’t need to be the same value: both 16 by 16 pixels and 8 by 32 pixels would meet this requirement.
 
 # Units of measurements  
 
-Dimensions in Unity are typically presented in Pixels per Unit.
+PPU is a bridging mechanism between Unity's "World Units" vs sprite sizes. It is used to **normalise** sprite sizes.
+
+When you import art assets with different pixel resolutions (e.g., a 32×32 tile vs. a 64×64 character sprite), Unity uses PPU to translate all of them into a consistent scale in world space. This ensures that:
+
+* A 32-pixel tile with PPU = 32 becomes 1 Unity unit wide.
+* A 64-pixel character with PPU = 32 becomes 2 Unity units wide.
+
+So they scale correctly relative to each other, and everything aligns visually and spatially.
 
 Lets say on a tile's import settings, you set the PPU to 100. That means 100 pixels of the tile will fit into one unit.
 So if tile's actual dimensions are 200x200 pixels, it will take up 2 units.
+# Asset Manager
 
-Think of PPU as "How much of the image should fit into a unit?"
+When you drag an asset into Unity Editor, Unity will create a copy in the project's Asset folder.
+
+Workflow optimisation:
+* Keep your assets in the Unity Game Folder
+* Edit them directly in the the project folder, Unity will auto detect changes to the source file and re-import it.
+  
+
 
 # TileMaps
 
